@@ -1,1 +1,59 @@
-<p>This is the partial for view 1.</p>
+<div class="row row-bottom-spacing">
+  <div class="col-md-12">
+    <h2>What are you looking forward to?</h2>
+    <form name="occasionForm" data-ng-submit="occasionForm.$valid && addOccasion()" novalidate>
+      <input ng-model="occasion.name" required type="text">
+      <input ng-model="occasion.date" required type="date">
+      <input type="submit">
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="row row-bottom-spacing">
+  <div class="col-md-12">
+    <h2>My Countdowns</h2>
+  </div>
+  <div class="col-md-12">
+    Filter: <input ng-model="query">
+    <!-- 
+    Data-binding: When the page loads, Angular binds the name of the input box to a variable of the same name ("query") in the data model and keeps the two in sync.
+    -->
+
+    Sort by:
+    <select ng-model="orderProp">
+      <option value="date">Closest Date</option>
+      <option value="-date">Furthest Date</option>
+      <option value="name">Alphabetical</option>
+    </select>
+  </div>
+</div>
+
+<div class="row row-bottom-spacing">
+  <div class="col-md-12">
+    <table class="table countdowns">
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Countdown</th>
+      </tr>
+      <tr ng-repeat="occasion in occasions | filter:query | orderBy:orderProp" class="ctdwn-listing">
+        <!-- 
+        Filter function: uses the query value to create a new array that contains only those records that match the query
+        -->
+        <td>
+          <a href="#">
+            {{ occasion.name }}
+          </a>
+        </td>
+        <td>
+          {{ occasion.date | date }}
+        </td>
+        <td>
+          <span>{{occasion.date | amDifference : null : 'days' }} days from now</span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
