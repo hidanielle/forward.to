@@ -2,8 +2,9 @@
   <div class="col-md-12">
     <h2>What are you looking forward to?</h2>
     <form name="occasionForm" data-ng-submit="occasionForm.$valid && addOccasion()" novalidate>
-      <input ng-model="occasion.name" required type="text">
-      <input ng-model="occasion.date" required type="date">
+      <input name="occasion-name" ng-model="occasion.name" required type="text">
+      <label for="occasion-date">When is it?</label>
+      <input name="occasion-date" ng-model="occasion.date" required type="date">
       <input type="submit">
     </form>
   </div>
@@ -37,13 +38,14 @@
         <th>Event</th>
         <th>Date</th>
         <th>Countdown</th>
+        <th>Actions</th>
       </tr>
       <tr ng-repeat="occasion in occasions | filter:query | orderBy:orderProp" class="ctdwn-listing">
         <!-- 
         Filter function: uses the query value to create a new array that contains only those records that match the query
         -->
         <td>
-          <a href="#">
+          <a href="#/occasions/{{occasion.id}}">
             {{ occasion.name }}
           </a>
         </td>
@@ -51,7 +53,10 @@
           {{ occasion.date | date }}
         </td>
         <td>
-          <span>{{occasion.date | amDifference : null : 'days' }} days from now</span>
+          <span>{{occasion.date | amDifference | amDurationFormat  }}</span>
+        </td>
+        <td>
+          <button ng-click="removeOccasion()">Remove</button>
         </td>
       </tr>
     </table>

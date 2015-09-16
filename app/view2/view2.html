@@ -1,5 +1,6 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<h1>Countdown to {{ occasion.name }}</h1>
+<!-- {{ occasion.date | date }} -->
+
+<span>{{occasion.date | amDifference | amDurationFormat  }}</span>
+
+<!-- <span am-time-ago="occasion.date"></span> -->

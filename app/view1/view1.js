@@ -9,20 +9,18 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', ['$scope', function($scope) {
+.controller('View1Ctrl', ['$scope', '$filter', 'localStorageService', 'Occasion', function($scope, $filter, localStorageService, occasionsInStore) {
   $scope.orderProp = 'date';
-  $scope.occasions = [
-    {'name': '50th Wedding Anniversary',
-     'date': new Date('2015-09-19T04:00:00.000Z')},
-    {'name': 'House Warming',
-     'date': new Date('2015-09-26T04:00:00.000Z')},
-    {'name': 'Halloween Haunt',
-     'date': new Date('2015-10-02T04:00:00.000Z')}
-  ];
+
   $scope.addOccasion = function() {
     $scope.occasions.push({
+      'id': $filter('spaceless')($scope.occasion.name + '-' +  $filter('date')($scope.occasion.date , 'mm-dd-yyyy')),
       'name': $scope.occasion.name,
-      'date': $scope.occasion.date 
+      'date': new Date($scope.occasion.date)
     });
   }
+  $scope.removeOccasion = function (index) {
+    $scope.occasions.splice(index, 1);
+  };
+  
 }]);
