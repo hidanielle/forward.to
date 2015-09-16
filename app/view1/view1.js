@@ -18,9 +18,11 @@ angular.module('myApp.view1', ['ngRoute'])
       'name': $scope.occasion.name,
       'date': new Date($scope.occasion.date)
     });
+    $scope.occasion = {};
+    $scope.occasionForm.$setPristine();
   }
   $scope.removeOccasion = function (index) {
     $scope.occasions.splice(index, 1);
   };
-  
+
 }]);
