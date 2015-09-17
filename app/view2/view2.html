@@ -3,6 +3,6 @@
 <h1>Countdown to {{ occasion.name }}</h1>
 <!-- {{ occasion.date | date }} -->
 
-<span>{{occasion.date | amDifference | amDurationFormat  }}</span>
+<span am-time-ago="occasion.date"></span>
 
 <!-- <span am-time-ago="occasion.date"></span> -->

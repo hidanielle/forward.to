@@ -15,7 +15,7 @@ angular.module('myApp', [
   localStorageServiceProvider.setPrefix('ls');
 }])
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/forward-to'});
 }])
 .config(['$compileProvider', function ($compileProvider) {
   $compileProvider.debugInfoEnabled(false);

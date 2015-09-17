@@ -46,7 +46,7 @@
           {{ occasion.date | date }}
         </td>
         <td>
-          <span>{{occasion.date | amDifference | amDurationFormat  }}</span>
+          <span am-time-ago="occasion.date"></span>
         </td>
         <td>
           <button ng-click="removeOccasion()">Remove</button>
