@@ -6,8 +6,9 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.version',
-  'myApp.convertSpaces',
+  'myApp.momentFilters',
   'myApp.occasionServices',
+  'myApp.convertSpaces',
   'angularMoment',
   'LocalStorageModule'
 ])

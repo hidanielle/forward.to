@@ -12,17 +12,20 @@ angular.module('myApp.view1', ['ngRoute'])
 .controller('View1Ctrl', ['$scope', '$filter', 'localStorageService', 'Occasion', function($scope, $filter, localStorageService, occasionsInStore) {
   $scope.orderProp = 'date';
 
-  $scope.addOccasion = function() {
+  $scope.addOccasion = function(occasion) {
+    console.log($scope.occasions.indexOf(occasion));
+
     $scope.occasions.push({
-      'id': $filter('spaceless')($scope.occasion.name + '-' +  $filter('date')($scope.occasion.date , 'mm-dd-yyyy')),
+      'id': $filter('spaceless')($filter('lowercase')($scope.occasion.name) + '-' +  $filter('date')($scope.occasion.date , 'MM-dd-yyyy')) + '-' + $scope.occasions.length,
       'name': $scope.occasion.name,
       'date': new Date($scope.occasion.date)
     });
     $scope.occasion = {};
     $scope.occasionForm.$setPristine();
+
   }
-  $scope.removeOccasion = function (index) {
-    $scope.occasions.splice(index, 1);
+  $scope.removeOccasion = function (occasion) {
+    $scope.occasions.splice($scope.occasions.indexOf(occasion),1);
   };
 
 }]);

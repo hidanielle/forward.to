@@ -1,31 +1,25 @@
-<div class="row row-bottom-spacing">
-  <div class="col-md-12">
-    <h2>What are you looking forward to?</h2>
-    <form name="occasionForm" data-ng-submit="occasionForm.$valid && addOccasion()" novalidate>
-      <input name="occasion-name" ng-model="occasion.name" required type="text">
-      <label for="occasion-date">When is it?</label>
-      <input name="occasion-date" ng-model="occasion.date" required type="date">
-      <input type="submit">
+<section class="feature-main">
+  <article class="vertical-center">
+    <h1>What are you looking forward to?</h1>
+    <form name="occasionForm" data-ng-submit="occasionForm.$valid && addOccasion(occasion)" novalidate>
+      <div class="field">
+        <input id="occasion-name" ng-model="occasion.name" required type="text" placeholder="I'm looking forward to...">
+      </div>
+      <div class="field">
+        <input id="occasion-date" ng-model="occasion.date" placeholder="yyyy-mm-dd" required type="date">
+      </div>
+      <button type="submit">Start!</button>
     </form>
-  </div>
-</div>
+  </article>
+</section>
 
-<hr>
+<section class="feature-content">
 
-<div ng-show="occasions.length" class="row row-bottom-spacing">
-  <div class="col-md-12">
+  <article>
     <h2>My Countdowns</h2>
-  </div>
-  <div class="col-md-12">
-    Filter: <input ng-model="query">
-    <!-- 
-    Data-binding: When the page loads, Angular binds the name of the input box to a variable of the same name ("query") in the data model and keeps the two in sync.
-    --> 
-  </div>
-</div>
 
-<div ng-show="occasions.length" class="row row-bottom-spacing">
-  <div class="col-md-12">
+    Filter: <input ng-model="query">
+
     <table class="table countdowns">
       <tr>
         <th>Event</th>
@@ -33,10 +27,38 @@
         <th>Countdown</th>
         <th>Actions</th>
       </tr>
-      <tr ng-repeat="occasion in occasions | filter:query | orderBy:orderProp" class="ctdwn-listing">
+      <tr ng-repeat="occasion in occasions | filter:query | orderBy:orderProp | isFuture track by occasion.id" class="ctdwn-listing">
         <!-- 
         Filter function: uses the query value to create a new array that contains only those records that match the query
         -->
+        <td>
+          <a href="#/occasions/{{occasion.id}}">
+            {{ occasion.name }}
+          </a>
+        </td>
+        <td>
+          {{ occasion.date | date }}
+        </td>
+        <td>
+          <span am-time-ago="occasion.date"></span>
+        </td>
+        <td>
+          <button ng-click="removeOccasion(occasion)">Remove</button>
+        </td>
+      </tr>
+    </table>
+  </article>
+
+  <article>
+    <h2>My Past Countdowns</h2>
+    <table class="table countdowns">
+      <tr>
+        <th>Event</th>
+        <th>Date</th>
+        <th>Countdown</th>
+        <th>Actions</th>
+      </tr>
+      <tr ng-repeat="occasion in occasions | orderBy:orderProp | isAfter" class="ctdwn-listing">
         <td>
           <a href="#/occasions/{{occasion.id}}">
             {{ occasion.name }}
@@ -53,5 +75,6 @@
         </td>
       </tr>
     </table>
-  </div>
-</div>
+  </article>
+
+</section>
