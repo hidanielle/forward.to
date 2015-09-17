@@ -16,4 +16,7 @@ angular.module('myApp', [
 }])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/view1'});
+}])
+.config(['$compileProvider', function ($compileProvider) {
+  $compileProvider.debugInfoEnabled(false);
 }]);
