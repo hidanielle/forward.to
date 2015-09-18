@@ -43,12 +43,19 @@
           <span am-time-ago="occasion.date"></span>
         </td>
         <td>
-          <button ng-click="removeOccasion(occasion)">Remove</button>
+          <a class="action-icon" href="#/occasions/{{occasion.id}}"><i class="fa fa-eye"></i></a>
+          <button class="action-icon" ng-click="removeOccasion(occasion)"><i class="fa fa-trash-o"></i></button>
         </td>
+      </tr>
+      <tr ng-show="!occasions.length">
+        <td colspan="3">
+          You have no past countdowns
+        </td>
+        <td></td>
       </tr>
     </table>
   </article>
-
+  <hr>
   <article>
     <h2>My Past Countdowns</h2>
     <table class="table countdowns">
@@ -71,7 +78,8 @@
           <span am-time-ago="occasion.date"></span>
         </td>
         <td>
-          <button ng-click="removeOccasion()">Remove</button>
+          <a class="action-icon" href="#/occasions/{{occasion.id}}"><i class="fa fa-eye"></i></a>
+          <button class="action-icon" ng-click="removeOccasion(occasion)"><i class="fa fa-trash-o"></i></button>
         </td>
       </tr>
     </table>

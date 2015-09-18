@@ -31,6 +31,19 @@ h2 {
   text-transform: uppercase;
 }
 
+hr {
+  border-top: 1px solid #73aede;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(115,174,222,1);
+  transition: color 0.2s;
+  &:hover {
+    color: #366993;
+  }
+}
+
 form {
   width: 100%;
   max-width: 560px;
@@ -72,7 +85,7 @@ input[type="date"].ng-invalid { color: rgba(255,255,255,0.7); }
 }
 
 input[type="submit"],
-button {
+button[type="submit"] {
   display: block;
   width: 100%;
   max-width: 300px;
@@ -120,6 +133,9 @@ article {
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
+  &:not(:first-of-type) {
+    margin: 50px auto;
+  }
 }
 
 .feature-main {
@@ -129,7 +145,7 @@ article {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  height: 70%;
+  height: 85%;
   min-height: 480px;
   text-align: center;
 }
@@ -141,4 +157,55 @@ article {
 table {
   width: 100%;
   text-align: left;
+  margin: 50px 0;
+  font-size: 1.2em;
+}
+
+tr {
+  &:first-of-type {
+    background-color: rgba(115,174,222,1);
+    color: white;
+    height: 30px;
+    line-height: 30px;
+  }
+  &:nth-of-type(2n+1):not(:first-of-type) {
+    background-color: rgba(230,230,230,0.7);
+    
+  }
+}
+
+th,
+td {
+  padding-left: 10px;
+  &:last-of-type {
+    padding-right: 40px;
+    text-align: right;
+  }
+}
+
+td {
+  vertical-align: middle;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #366993;
+  span {
+    font-weight: 700;
+  }
+}
+
+.action-icon {
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: 10px;
+  text-align: right;
+  border: none;
+  background-color: transparent;
+}
+
+.fa-trash-o {
+  color: #d27780;
+  transition: color 0.5s;
+  &:hover {
+    color: darken(#d27780, 30%);
+  }
 }
