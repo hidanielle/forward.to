@@ -23,13 +23,16 @@
     <div class="filter">
       Filter: <input type="text" ng-pattern="/^[a-zA-Z0-9 ]*$/" ng-model="query">
     </div>
-
     <table class="table countdowns">
       <tr>
         <th>Event</th>
         <th>Countdown</th>
         <th>Date</th>
         <th>Actions</th>
+      </tr>
+      <tr ng-hide="(occasions | filter:query | isFuture).length">
+        <td colspan="#">You have no countdowns that match the criteria.</td>
+        <td></td>
       </tr>
       <tr ng-repeat="occasion in occasions | filter:query | orderBy:orderProp | isFuture track by occasion.id" class="ctdwn-listing">
         <!-- 
