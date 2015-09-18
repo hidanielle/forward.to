@@ -11,7 +11,8 @@ angular.module('myApp', [
   'myApp.convertSpaces',
   'angularMoment',
   'LocalStorageModule',
-  'smoothScroll'
+  'smoothScroll',
+  'ngFitText'
 ])
 .config(['localStorageServiceProvider', function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('ls');

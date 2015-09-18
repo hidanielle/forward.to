@@ -1,8 +1,8 @@
-<a href="#/view1">< Back</a>
-
-<h1>Countdown to {{ occasion.name }}</h1>
-<!-- {{ occasion.date | date }} -->
-
-<span am-time-ago="occasion.date"></span>
-
-<!-- <span am-time-ago="occasion.date"></span> -->
+<section class="feature-full">
+  <article class="vertical-center">
+    <h2 data-fittext data-fittext-max="50"><span>{{occasion.date | amDifference : null : 'days'}}</span> days until</h2>
+    <div class="clearfix"></div>
+    <h1 data-fittext data-fittext-max="250" data-fittext-min="50">{{ occasion.name }}</h1>
+    <a class="link-button" href="#/view1">Back to List</a>
+  </article>
+</section>

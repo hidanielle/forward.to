@@ -95,7 +95,8 @@ input + span {
 }
 
 input[type="submit"],
-button[type="submit"] {
+button[type="submit"],
+a.link-button {
   display: block;
   width: 100%;
   max-width: 300px;
@@ -149,12 +150,7 @@ article {
 }
 
 .feature-main {
-  background-color: #c0d0d8;
-  background-image: url("../img/cloud-7.jpg");
-  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
   height: 85%;
   min-height: 480px;
   text-align: center;
@@ -162,6 +158,40 @@ article {
 
 .feature-content {
   margin: 60px 0;
+}
+
+.feature-main,
+.feature-full {
+  background-color: #c0d0d8;
+  background-image: url("../img/cloud-7.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.feature-full {
+  width: 100%;
+  height: 100%;
+  article {
+    text-align: center;
+  }
+  h1 {
+    font-size: 9em;
+  }
+  h2 {
+    font-size: 5em;
+    text-transform: none;
+    span {
+      color: white;
+    }
+  }
+  .link-button {
+    margin-top: 50px;
+    font-size: 1em;
+    max-width: 170px;
+    height: 42px;
+    line-height: 42px;
+  }
 }
 
 .filter {
@@ -190,6 +220,9 @@ tr {
     color: white;
     height: 30px;
     line-height: 30px;
+    .countdowns-past & {
+      background-color: lighten(#838485, 20%);
+    }
   }
   &:nth-of-type(2n+1):not(:first-of-type) {
     background-color: rgba(230,230,230,0.7);
@@ -211,6 +244,9 @@ td {
   padding-top: 20px;
   padding-bottom: 20px;
   color: #366993;
+  .countdowns-past & {
+    color: #838485
+  }
   span {
     font-weight: 700;
   }
@@ -237,8 +273,8 @@ td {
   h1 {
     font-size: 3em;
   }
-  th:nth-child(2),
-  td:nth-child(2) {
+  th:nth-child(3),
+  td:nth-child(3) {
     display: none;
   }
 }

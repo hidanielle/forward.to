@@ -27,8 +27,8 @@
     <table class="table countdowns">
       <tr>
         <th>Event</th>
-        <th>Date</th>
         <th>Countdown</th>
+        <th>Date</th>
         <th>Actions</th>
       </tr>
       <tr ng-repeat="occasion in occasions | filter:query | orderBy:orderProp | isFuture track by occasion.id" class="ctdwn-listing">
@@ -41,10 +41,10 @@
           </a>
         </td>
         <td>
-          {{ occasion.date | date }}
+          <span>in {{occasion.date | amDifference : null : 'days'}} days</span>
         </td>
         <td>
-          <span>in {{occasion.date | amDifference : null : 'days'}} days</span>
+          {{ occasion.date | date }}
         </td>
         <td>
           <a class="action-icon" href="#/occasions/{{occasion.id}}"><i class="fa fa-eye"></i></a>
@@ -62,18 +62,16 @@
   <hr>
   <article ng-show="(occasions | isAfter).length">
     <h2>My Past Countdowns</h2>
-    <table class="table countdowns">
+    <table class="table countdowns countdowns-past">
       <tr>
         <th>Event</th>
         <th>Date</th>
         <th>Countdown</th>
-        <th>Actions</th>
+        <th></th>
       </tr>
       <tr ng-repeat="occasion in occasions | orderBy:orderProp | isAfter" class="ctdwn-listing">
         <td>
-          <a href="#/occasions/{{occasion.id}}">
-            {{ occasion.name }}
-          </a>
+          {{ occasion.name }}
         </td>
         <td>
           {{ occasion.date | date }}
@@ -82,8 +80,6 @@
           <span am-time-ago="occasion.date"></span>
         </td>
         <td>
-          <a class="action-icon" href="#/occasions/{{occasion.id}}"><i class="fa fa-eye"></i></a>
-          <button class="action-icon" ng-click="removeOccasion(occasion)"><i class="fa fa-trash-o"></i></button>
         </td>
       </tr>
     </table>
