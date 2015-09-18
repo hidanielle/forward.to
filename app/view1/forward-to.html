@@ -44,7 +44,8 @@
           </a>
         </td>
         <td>
-          <span>in {{occasion.date | amDifference : null : 'days'}} days</span>
+          <!-- <span>in {{occasion.date | amDifference : null : 'days'}} days</span> -->
+          <span am-time-ago="occasion.date"></span>
         </td>
         <td>
           {{ occasion.date | date }}
