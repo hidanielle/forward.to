@@ -18,5 +18,8 @@
     "angular-local-storage": "~0.2.2",
     "ngSmoothScroll": "~1.7.1",
     "ngFitText": "~3.3.3"
+  },
+  "resolutions": {
+    "angular": "~1.4.6"
   }
 }
