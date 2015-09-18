@@ -75,6 +75,16 @@ form {
 input:-moz-placeholder { color: rgba(255,255,255,0.7); }
 input[type="date"].ng-invalid { color: rgba(255,255,255,0.7); }
 
+input + span {
+  display: none;
+  color: #d27780;
+  margin-top: 10px;
+}
+
+.ng-invalid.ng-dirty + span {
+  display: inline-block;; 
+}
+
 .ng-submitted .ng-invalid,
 .ng-invalid.ng-dirty {
   border-color: #d27780;
@@ -152,6 +162,19 @@ article {
 
 .feature-content {
   margin: 60px 0;
+}
+
+.filter {
+  float: right;
+  margin-bottom: 20px;
+  input[type="text"] {
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+    width: 220px;
+    padding-left: 10px;
+    border: 1px solid #366993;
+  }
 }
 
 table {

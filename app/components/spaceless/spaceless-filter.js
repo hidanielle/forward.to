@@ -5,7 +5,8 @@ angular.module('myApp.convertSpaces', [])
 .filter('spaceless',function() {
   return function(input) {
     if (input) {
-      return input.replace(/\s+/g, '-');    
+      var nospaces = input.replace(/\s+/g, '-')
+      return encodeURIComponent(nospaces);    
     }
   }
-});
+})

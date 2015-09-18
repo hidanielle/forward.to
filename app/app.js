@@ -10,7 +10,8 @@ angular.module('myApp', [
   'myApp.occasionServices',
   'myApp.convertSpaces',
   'angularMoment',
-  'LocalStorageModule'
+  'LocalStorageModule',
+  'smoothScroll'
 ])
 .config(['localStorageServiceProvider', function(localStorageServiceProvider){
   localStorageServiceProvider.setPrefix('ls');
