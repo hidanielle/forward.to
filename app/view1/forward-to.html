@@ -31,9 +31,10 @@
         <th>Actions</th>
       </tr>
       <tr ng-hide="(occasions | filter:query | isFuture).length">
-        <td colspan="#">You have no countdowns that match the criteria.</td>
+        <td colspan="#">No results.</td>
         <td></td>
       </tr>
+
       <tr ng-repeat="occasion in occasions | filter:query | orderBy:orderProp | isFuture track by occasion.id" class="ctdwn-listing">
         <!-- 
         Filter function: uses the query value to create a new array that contains only those records that match the query
@@ -54,12 +55,6 @@
           <a class="action-icon" href="#/occasions/{{occasion.id}}"><i class="fa fa-eye"></i></a>
           <button class="action-icon" ng-click="removeOccasion(occasion)"><i class="fa fa-trash-o"></i></button>
         </td>
-      </tr>
-      <tr ng-show="!occasions.length">
-        <td colspan="3">
-          You have no past countdowns
-        </td>
-        <td></td>
       </tr>
     </table>
   </article>
