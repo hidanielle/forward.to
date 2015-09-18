@@ -232,3 +232,39 @@ td {
     color: darken(#d27780, 30%);
   }
 }
+
+@media (max-width: 580px) {
+  h1 {
+    font-size: 3em;
+  }
+  th:nth-child(2),
+  td:nth-child(2) {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  .filter {
+    width: 100%;
+  }
+  .field input,
+  input[type="submit"],
+  button[type="submit"] {
+    height: 52px;
+    line-height: 52px;
+    font-size: 1.5em;
+  }
+  table {
+    font-size: 1em;
+  }
+  th:last-of-type, 
+  td:last-of-type {
+    padding-right: 10px;
+  }
+}
