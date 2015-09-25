@@ -59,14 +59,19 @@
     </table>
   </article>
   <hr>
-  <article ng-show="(occasions | isAfter).length">
-    <h2>My Past Countdowns</h2>
-    <table class="table countdowns countdowns-past">
+  <article>
+    <h2 class="pull-l">My Past Countdowns</h2>
+    <button ng-show="(occasions | isAfter).length" class="action-icon pull-r" ng-click="removeOldOccasions()"><i class="fa fa-trash-o"></i> <span>Clear All</span></button>
+    <table  class="table countdowns countdowns-past">
       <tr>
         <th>Event</th>
         <th>Date</th>
         <th>Countdown</th>
         <th></th>
+      </tr>
+      <tr ng-hide="(occasions | isAfter).length">
+        <td colspan="#">No past countdowns.</td>
+        <td></td>
       </tr>
       <tr ng-repeat="occasion in occasions | orderBy:orderProp | isAfter" class="ctdwn-listing">
         <td>

@@ -31,8 +31,15 @@ angular.module('myApp.view1', ['ngRoute'])
     smoothScroll(element, options);
   }
 
-  $scope.removeOccasion = function (occasion) {
+  $scope.removeOccasion = function(occasion) {
     $scope.occasions.splice($scope.occasions.indexOf(occasion),1);
+  };
+
+  $scope.removeOldOccasions = function(occasion) {
+    var oldOccasions = $filter('isAfter')($scope.occasions);
+    for (var i = 0; i < oldOccasions.length; i++) {
+      $scope.occasions.splice($scope.occasions.indexOf(oldOccasions[i]),1);
+    }
   };
 
 }]);

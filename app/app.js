@@ -27,7 +27,7 @@ angular.module('myApp', [
 var originalHumanize = moment.duration.fn.humanize;
 moment.duration.fn.humanize = function() {
     var days = Math.abs(this.asDays());
-    console.log(days);
+    
     if (days > 30) {
         return 'in ' + Math.round(days) + ' days';
     }
