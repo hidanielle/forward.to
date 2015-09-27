@@ -3,6 +3,20 @@
   box-sizing: border-box;
 }
 
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.cf {
+  *zoom: 1;
+}
+
 html,
 body {
   width: 100%;
@@ -313,4 +327,12 @@ td {
   td:last-of-type {
     padding-right: 10px;
   }
+}
+
+footer {
+  margin-top: 50px;
+  line-height: 4;
+  text-align: center;
+  background-color: #363636;
+  color: white;
 }

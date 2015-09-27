@@ -65,8 +65,8 @@
     <table  class="table countdowns countdowns-past">
       <tr>
         <th>Event</th>
-        <th>Date</th>
         <th>Countdown</th>
+        <th>Date</th>
         <th></th>
       </tr>
       <tr ng-hide="(occasions | isAfter).length">
@@ -78,10 +78,10 @@
           {{ occasion.name }}
         </td>
         <td>
-          {{ occasion.date | date }}
+          <span am-time-ago="occasion.date"></span>
         </td>
         <td>
-          <span am-time-ago="occasion.date"></span>
+          {{ occasion.date | date }}
         </td>
         <td>
         </td>
@@ -90,3 +90,7 @@
   </article>
 
 </section>
+
+<footer>
+  A project by <a href="http://hidanielle.com" target="_blank">hidanielle</a>.
+</footer>
